@@ -1,25 +1,24 @@
-import java.util.LinkedHashSet;
+import java.util.LinkedHashMap;
 
-public class PalindromeCheckerApp {
+public class TrainConsistManagementApp {
     public static void main(String[] args) {
 
-        // LinkedHashSet for maintaining order + uniqueness
-        LinkedHashSet<String> trainSet = new LinkedHashSet<>();
+        // LinkedHashMap to store bogie and capacity
+        LinkedHashMap<String, Integer> bogieMap = new LinkedHashMap<>();
 
-        // Adding elements (including duplicates)
-        trainSet.add("Engine");
-        trainSet.add("Sleeper");
-        trainSet.add("Cargo");
-        trainSet.add("Guard");
-        trainSet.add("Sleeper"); // duplicate
-        trainSet.add("Engine");  // duplicate
+        // Adding bogie capacity details
+        bogieMap.put("First Class", 24);
+        bogieMap.put("Cargo", 120);
+        bogieMap.put("Sleeper", 72);
+        bogieMap.put("AC Chair", 56);
 
-        System.out.println("Final Train Formation:");
-        System.out.println(trainSet);
+        System.out.println("Bogi Capacity Details:");
 
-        System.out.println("\nNote:");
-        System.out.println("LinkedHashSet, Preserves Insertion order and removes duplicates automatically.");
+        // Printing each entry
+        for (String key : bogieMap.keySet()) {
+            System.out.println(key + " -> " + bogieMap.get(key));
+        }
 
-        System.out.println("\nUCS formation setup completed.....");
+        System.out.println("\nUC6 bogie mapping Completed");
     }
 }
