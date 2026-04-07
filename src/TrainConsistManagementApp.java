@@ -1,31 +1,29 @@
-import java.util.HashSet;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.LinkedList;
 
-public class TrainConsistManagementApp{
+public class TrainConsistManagementApp {
     public static void main(String[] args) {
 
-        // HashSet to store unique Bogie IDs
-        HashSet<String> bogieSet = new HashSet<>();
+        // Create LinkedList for train consist
+        LinkedList<String> train = new LinkedList<>();
 
-        // Adding bogie IDs (including duplicates)
-        bogieSet.add("BG101");
-        bogieSet.add("BG102");
-        bogieSet.add("BG103");
-        bogieSet.add("BG104");
-        bogieSet.add("BG102"); // duplicate
-        bogieSet.add("BG101"); // duplicate
+        // Initial elements
+        train.add("Engine");
+        train.add("Sleeper");
+        train.add("AC");
+        train.add("Cargo");
+        train.add("Guard");
 
-        // Convert to list for ordering (reverse)
-        ArrayList<String> bogieList = new ArrayList<>(bogieSet);
-        Collections.sort(bogieList, Collections.reverseOrder());
+        System.out.println("Initial Train Consist;");
+        System.out.println(train);
 
-        System.out.println("Bogie IDs After Insertion:");
-        System.out.println(bogieList);
+        // Remove first and last bogie
+        train.removeFirst();   // removes Engine
+        train.removeLast();    // removes Guard
 
-        System.out.println("\nNote:");
-        System.out.println("Duplicates are automatically ignored HashSet.");
+        // Adding Pantry Car (as shown in expected output)
+        train.add(1, "Pantry Car");
 
-        System.out.println("\nUC3 uniqueness validation completed");
+        System.out.println("\nAfter Removing First and last Bogie:");
+        System.out.println(train);
     }
 }
